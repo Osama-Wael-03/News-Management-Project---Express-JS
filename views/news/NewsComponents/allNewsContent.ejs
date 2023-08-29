@@ -1,0 +1,115 @@
+<div class="container">
+
+  <!-- Page Heading/Breadcrumbs -->
+  <h1 class="mt-4 mb-3">Portfolio 1
+    <small>Subheading</small>
+  </h1>
+
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item">
+      <a href="/cms/news">Home</a>
+    </li>
+    <li class="breadcrumb-item active">Portfolio 1</li>
+  </ol>
+
+  <!-- news title One -->
+  <% for(let iterator of news){ %>
+  <div class="row">
+    <div class="col-md-7">
+      <a href="/cms/newsDetails">
+        <img class="img-fluid full-width h-200 rounded mb-3 mb-md-0" src="<%= iterator.news_image %>" alt="">
+      </a>
+    </div>
+    
+    <div class="col-md-5">
+      <h3><%= iterator.news_title %></h3>
+      <p> <%= iterator.news_description %></p>
+      <a class="btn btn-primary" href="/cms/news/<%=iterator.news_id %>">View news Details
+        <span class="glyphicon glyphicon-chevron-right"></span>
+      </a>
+    </div>
+  </div>
+  <% } %>
+  <!-- /.row -->
+
+  <hr>
+
+  <!-- news Details Two -->
+  <!-- <div class="row">
+    <div class="col-md-7">
+      <a href="/cms/newsDetails">
+        <img class="img-fluid full-width h-200 rounded mb-3 mb-md-0" src="/assets/img/22.jpg" alt="">
+      </a>
+    </div>
+    <div class="col-md-5">
+      <h3>news Details Two</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut, odit velit cumque vero doloremque repellendus distinctio maiores rem expedita a nam vitae modi quidem similique ducimus! Velit, esse totam tempore.</p>
+      <a class="btn btn-primary" href="/cms/newsDetails">View news Details
+        <span class="glyphicon glyphicon-chevron-right"></span>
+      </a>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="row">
+    <div class="col-md-7">
+      <a href="/cms/newsDetails">
+        <img class="img-fluid full-width h-200 rounded mb-3 mb-md-0" src="/assets/img/s1.jpg" alt="">
+      </a>
+    </div>
+    <div class="col-md-5">
+      <h3>news title Three</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis, temporibus, dolores, at, praesentium ut unde repudiandae voluptatum sit ab debitis suscipit fugiat natus velit excepturi amet commodi deleniti alias possimus!</p>
+      <a class="btn btn-primary" href="/cms/newsDetails">View news Details
+        <span class="glyphicon glyphicon-chevron-right"></span>
+      </a>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="row">
+
+    <div class="col-md-7">
+      <a href="/cms/newsDetails">
+        <img class="img-fluid full-width h-200 rounded mb-3 mb-md-0" src="/assets/img/5.jpeg" alt="">
+      </a>
+    </div>
+    <div class="col-md-5">
+      <h3>news title Four</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo, quidem, consectetur, officia rem officiis illum aliquam perspiciatis aspernatur quod modi hic nemo qui soluta aut eius fugit quam in suscipit?</p>
+      <a class="btn btn-primary" href="/cms/newsDetails">View news Details
+        <span class="glyphicon glyphicon-chevron-right"></span>
+      </a>
+    </div>
+  </div> -->
+
+  <hr>
+
+  <!-- Pagination -->
+  <ul class="pagination justify-content-center">
+    <li class="page-item">
+      <a class="page-link" href="/cms/newsDetails" aria-label="Previous">
+        <span aria-hidden="true">&laquo;</span>
+        <span class="sr-only">Previous</span>
+      </a>
+    </li>
+    <li class="page-item">
+      <a class="page-link" href="">1</a>
+    </li>
+    <li class="page-item">
+      <a class="page-link" href="">2</a>
+    </li>
+    <li class="page-item">
+      <a class="page-link" href="">3</a>
+    </li>
+    <li class="page-item">
+      <a class="page-link" href="" aria-label="Next">
+        <span aria-hidden="true">&raquo;</span>
+        <span class="sr-only">Next</span>
+      </a>
+    </li>
+  </ul>
+
+</div>

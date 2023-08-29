@@ -1,0 +1,171 @@
+<div class="container">
+
+  <!-- Page Heading/Breadcrumbs -->
+  <h1 class="mt-4 mb-3">main news Title here
+
+  </h1>
+
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item">
+      <a href="/cms/news">Home</a>
+    </li>
+    <li class="breadcrumb-item active">news deatils</li>
+  </ol>
+
+  <div class="row">
+
+    <!-- Post Content Column -->
+    <div class="col-lg-8">
+
+      <!-- Preview Image -->
+      <img class="img-fluid rounded" src="<%= news.news_image %>" alt="">
+
+      <hr>
+
+      <!-- Date/Time -->
+      <p>Posted on <%= news.createdAt %>
+      </p>
+      <hr>
+
+      <!-- Post Content -->
+      <p class="lead">
+        <%= news.news_description %>
+      </p>
+
+
+      <hr>
+      <% if(locals.errors){ %>
+
+        <div class="alert alert-danger alert-dismissible">
+          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+          <h5><i class="icon fas fa-ban"></i> Alert!</h5>
+          <ul>
+            <% for(let error of locals.errors){ %>
+              <li>
+                <%= error.msg %>
+              </li>
+              <% } %>
+          </ul>
+        </div>
+
+        <% } %>
+          <!-- Comments Form -->
+          <div class="card my-4">
+            <h5 class="card-header">Leave a Comment:</h5>
+            <div class="card-body">
+              <form method="post" action="/cms/news">
+                <div class="form-group">
+                  <label for="commenter">Name:</label>
+                  <input type="text" class="form-control" name="commenter_name" id="commenter">
+                </div>
+                <div class="form-group">
+                  <label for="comment">Comment:</label>
+                  <textarea class="form-control" rows="3" name="comment_content" id="comment"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </form>
+            </div>
+          </div>
+          <div class="card my-4">
+            <div class="card-header">
+              <h4>Comments Section</h4>
+            </div>
+          </div>
+          <!-- Single Comment -->
+          <% for (let i of comments) { %>
+            <div class="media mb-4">
+              <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
+              <div class="media-body">
+                <div class="comment-header">
+                  <h5 class="mt-0">
+                    <%= i.commenter_name %>
+                  </h5>
+                  <form method="post" action="/cms/news/reports/<%= i.comment_id %>">
+
+                    <button type="submit" class="btn btn-outline-danger btn-sm" name="comment_reports">Report</button>
+
+                  </form>
+                </div>
+                <p class="comment-content">
+                  <%= i.comment_content %>
+                </p>
+              </div>
+            </div>
+            <% } %>
+              <style>
+                .comment-header {
+                  display: flex;
+                  align-items: center;
+                  justify-content: space-between;
+                }
+
+                .comment-header h5 {
+                  margin-bottom: 0;
+                }
+
+                .btn-sm {
+                  margin-left: 10px;
+                  margin-bottom: -14px;
+                }
+
+                .comment-content {
+                  margin-top: -5px;
+                }
+              </style>
+
+
+
+              <!-- Comment with nested comments -->
+              <!-- <div class="media mb-4">
+            <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
+            <div class="media-body">
+              <h5 class="mt-0">Commenter Name</h5>
+              Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus
+              odio,
+              vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla.
+              Donec
+              lacinia congue felis in faucibus.
+
+              <div class="media mt-4">
+                <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
+                <div class="media-body">
+                  <h5 class="mt-0">Commenter Name</h5>
+                  Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus
+                  odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate
+                  fringilla. Donec lacinia congue felis in faucibus.
+                </div>
+              </div>
+
+              <div class="media mt-4">
+                <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
+                <div class="media-body">
+                  <h5 class="mt-0">Commenter Name</h5>
+                  Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus
+                  odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate
+                  fringilla. Donec lacinia congue felis in faucibus.
+                </div>
+              </div>
+
+            </div>
+          </div> -->
+
+    </div>
+
+    <!-- Sidebar Widgets Column -->
+    <div class="col-md-4">
+
+      <!-- Side Widget -->
+      <div class="card my-4">
+        <h5 class="card-header">Side Widget</h5>
+        <div class="card-body">
+          You can put anything you want inside of these side widgets. They are easy to use, and feature the new
+          Bootstrap 4 card containers!
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+  <!-- /.row -->
+
+</div>

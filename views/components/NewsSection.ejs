@@ -1,0 +1,28 @@
+<% for (let iterator of categories) { %>
+  <section>
+    <div class="container">
+      <h3 class="my-4"><%= iterator.category_name %></h3>
+      <!-- Marketing Icons Section -->
+      <div class="row">
+        <% let newsCount = 0; %>
+        <% for (let i of news) { %>
+          <% if (i.Category.category_name === iterator.category_name && newsCount < 3) { %>
+            <div class="col-lg-4 mb-4">
+              <div class="card h-100">
+                <h4 class="card-header"><%= i.news_title %></h4>
+                <div class="card-body">
+                  <p class="card-text"><%= i.news_description %></p>
+                </div>
+                <div class="card-footer">
+                  <a href="/cms/news/<%= i.news_id %>" class="btn btn-primary">Learn More</a>
+                </div>
+              </div>
+            </div>
+            <% newsCount++; %>
+          <% } %>
+        <% } %>
+      </div>
+      <!-- /.row -->
+    </div>
+  </section>
+<% } %>

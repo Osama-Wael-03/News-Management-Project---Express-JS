@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<!--
+This is a starter template page. Use this page to start your new project from
+scratch. This page gets rid of all links and provides the needed markup only.
+-->
+<html lang="en">
+
+<head>
+  <%- include('../../adminPanel-components/head.ejs') %>
+</head>
+
+<body class="hold-transition sidebar-mini">
+  <div class="wrapper">
+
+    <!-- Navbar -->
+
+    <%- include('../../adminPanel-components/nav-bar.ejs') %>
+
+
+      <!-- /.navbar -->
+
+      <!-- Main Sidebar Container -->
+
+      <%- include('../../adminPanel-components/main-side-bar.ejs') %>
+
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper">
+
+          <!-- Content Header (Page header) -->
+          <%- include('../../adminPanel-components/content-header.ejs') %>
+            <!-- /.content-header -->
+
+            <!-----------------------------------------------The Changable Area--------------------------------------------------->
+
+            <!-- Main content -->
+
+            <section class="content">
+              <div class="container-fluid">
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="card">
+                      <div class="card-header">
+                        <h3 class="card-title">Students Table</h3>
+                      </div>
+                      <!-- /.card-header -->
+                      <div class="card-body">
+                        <% if(locals.message){ %>
+                          <div class="alert alert-success alert-dismissible">
+                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                            <h5><i class="icon fas fa-check"></i> Alert!</h5>
+                            <%= locals.message %>
+                          </div>
+                          <% } %>
+                            <table class="table table-bordered table-hover table-striped">
+                              <thead>
+                                <tr>
+                                  <th style="width: 10px">#</th>
+                                  <th>News-Title</th>
+                                  <th>News-Description</th>
+                                  <th>Category</th>
+                                  <th>Deleted At</th>
+                                  <th>Actions</th>
+                                </tr>
+                              </thead>
+                              <% for(let iterator of news) { %>
+                                <tr>
+                                  <td>
+                                    <%= iterator.news_id %>
+                                  </td>
+                                  <td>
+                                    <%= iterator.news_title %>
+                                  </td>
+                                  <td>
+                                    <%= iterator.news_description %>
+                                  </td>
+                                  <td>
+                                    <%= iterator.Category.category_name %>
+                                  </td>
+                                  <td>
+                                    <%= iterator.deletedAt %>
+                                  </td>
+
+                                  <td>
+                                    <form method="get" action="/cms/auth/admin/news/<%= iterator.news_id %>/restore">
+                                      <div class="btn-group">
+                                        <button type="submit" class="btn btn-success btn-flat">
+                                            Restore
+                                        </button>
+                                    </form>
+
+
+
+                      </div>
+
+                      </td>
+                      </tr>
+                      <% } %>
+                        <tbody>
+
+
+
+                        </tbody>
+
+                        </table>
+                    </div>
+                    <!-- /.card-body -->
+                    <div class="card-footer clearfix">
+                      <ul class="pagination pagination-sm m-0 float-right">
+                        <li class="page-item"><a class="page-link" href="#">«</a></li>
+                        <li class="page-item"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item"><a class="page-link" href="#">»</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                  <!-- /.card -->
+
+
+                  <!-- /.card -->
+                </div>
+                <!-- /.col -->
+
+                <!-- /.col -->
+              </div>
+              <!-- /.row -->
+
+        </div><!-- /.container-fluid -->
+        </section>
+
+        <!-- /.content -->
+
+        <!-------------------------------------------------------------------------------------------------------------------->
+
+  </div>
+
+  <%- include('../../adminPanel-components/footer.ejs') %>
+
+
+    </div>
+
+    <!-- jQuery -->
+    <%- include('../../adminPanel-components/scripts.ejs') %>
+</body>
+
+</html>

@@ -1,0 +1,42 @@
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark fixed-top">
+  <div class="container">
+      <a class="navbar-brand" href="/cms/news">News</a>
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+              data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+              aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+              <li class="nav-item">
+                  <a class="nav-link" href="/cms/news">Home</a>
+              </li>
+
+
+              <!-- For Loop To Show links depend on categories that come form category model When press on any link we will sent the category id
+              then present the content insted of category that pressed !-->
+              <!-- <li class="nav-item">
+                  <a class="nav-link" href="/cms/allNews">Local News</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="/cms/allNews">International News</a>
+              </li>  <li class="nav-item">
+                  <a class="nav-link" href="/cms/allNews">Sport News</a>
+              </li>
+              <li class="nav-item"> -->
+                <%for(let i of categories){%>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/cms/allNews/<%= i.category_id %>"><%= i.category_name %></a>
+                </li>  
+                  <%}%>
+                <!-- For LOOOOOOOOOOOOOOP END-->
+
+
+              <a class="nav-link" href="/cms/contact">Contact Us</a>
+              </li>
+      
+
+          </ul>
+      </div>
+  </div>
+</nav>
