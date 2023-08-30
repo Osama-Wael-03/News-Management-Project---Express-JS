@@ -54,11 +54,11 @@ app.set('view engine', 'ejs');
 app.use(methodOverride);
 
 
-//Using Sssion Data Middleware
+//Using Session Data Middleware
 app.use(sessionData);
 
 
-//Using Sssion Handler Middleware
+//Using Session Handler Middleware
 app.use(withSessionHandler);
 
 
@@ -74,7 +74,7 @@ app.use((req, res) => {
   return res.render('adminPanel/layouts/errors/404-error');
 });
 
-// Connection Ckecking & Tables Creation !! 
+// Connection Checking & Tables Creation !! 
 database.authenticate().then(() => {
 
   News.hasMany(Comment, { foreignKey: 'news_id' });
