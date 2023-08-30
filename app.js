@@ -27,7 +27,7 @@ app.use(session({ secret: 'news-project' }));
 //Requiring Method Override Midddleware
 const { methodOverride } = require('./middlewares/method_override');
 
-//Requiring Method Override Midddleware
+//Requiring Session Errors Midddleware
 const { sessionData } = require('./middlewares/session-errors-old');
 
 
@@ -68,8 +68,8 @@ app.use('/cms', webRoutes);
 
 //General Handler !
 app.use((req, res) => {
-  if(req.headers.accepts == 'application/json'){
-    return res.status(404).send({ status: false, message: 'Sorrt, Page Not Found !' });  
+  if (req.headers.accepts == 'application/json') {
+    return res.status(404).send({ status: false, message: 'Sorrt, Page Not Found !' });
   }
   return res.render('adminPanel/layouts/errors/404-error');
 });
